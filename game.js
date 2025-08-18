@@ -6,6 +6,22 @@ const messages = document.getElementById("messages");
 const input = document.getElementById("input");
 //import { memoizedColors, rgbToHex, componentToHex, blendColor, drawPolygon, convertAngleToRadians, getRandomInRange, drawMob } from './mobdraw.js';
 
+ws.onopen = () => {
+  console.log("✅ WebSocket connected");
+};
+
+ws.onmessage = (event) => {
+  console.log("📩 Message from server:", event.data);
+};
+
+ws.onerror = (err) => {
+  console.error("❌ WebSocket error:", err);
+};
+
+ws.onclose = (event) => {
+  console.warn("⚠️ WebSocket closed:", event.code, event.reason);
+};
+
 let myId = null;
 let players = {};
 let selectedPetellIndex = null;
@@ -639,4 +655,5 @@ function spawnMob(x=0, y=0, rarity=0, mobType=0, angle=0) {
     }
   };
 }
+
 
