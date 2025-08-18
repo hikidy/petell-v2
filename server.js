@@ -56,7 +56,7 @@ function spawnMob(x, y, rarity, mobName, angle, team=0, owner=0) {   let type;
   }
 
   let randomRarity = rarity;
-  let sizeScale = 1.05;
+  let sizeScale = 1.04;
   let scalingType = 0;
 
   // compute scaled size/mass based on scalingType
@@ -7017,4 +7017,5 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
 
