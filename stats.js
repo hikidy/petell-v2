@@ -1,0 +1,90 @@
+// moblist.js
+export const mobTypes = [
+  // garden
+  {name:"Ladybug",dmg:10,hp:65.5,armor:.9,radius:22,hitbox_size:22,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"Spider",dmg:15,hp:62.5,poison:20,armor:.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:1,mass:0.1,behavior:"hostile",aggroType:"fast_chase",idleType:"wander"},
+  {name:"Rock",dmg:10,hp:75,armor:.9,radius:25,hitbox_size:25,firstrarity:0,sizevary:true,mass:5},
+  {name:"Bee",dmg:50,hp:37.5,armor:.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1,behavior:"neutral",aggroType:"sine",idleType:"circle"},
+  {name:"Hornet",dmg:50,hp:65.5,armor:.9,radius:18.5,hitbox_size:18.5,firstrarity:2,mass:1.2,behavior:"hostile",aggroType:"hornet",idleType:"circle"},
+  {name:"Yellowjacket",dmg:50,hp:50,armor:.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:2,mass:0.5,behavior:"neutral",aggroType:"hornet",idleType:"circle"},
+  {name:"Missile",dmg:10,hp:10,armor:.9,radius:18.5,hitbox_size:10,firstrarity:0,renderhp:false,intangible:true,mass:0.1,behavior:"passive",idleType:"missile"},
+  {name:"Bumble Bee",dmg:20,hp:25,armor:.9,radius:20/1.5,hitbox_size:20/1.2,firstrarity:0,mass:1,behavior:"passive",idleType:"bumble"},
+  {name:"Pollen",dmg:10,hp:1,armor:.9,radius:20/3,hitbox_size:20/3,firstrarity:0,renderhp:false,intangible:true,mass:0.05,behavior:"passive",idleType:"despawn"},
+  // desert
+  {name:"Beetle",dmg:30,hp:100,armor:.9,radius:24,hitbox_size:20,firstrarity:0,mass:3,behavior:"hostile",aggroType:"slow_turn",idleType:"wander"},
+  {name:"Scorpion",dmg:15,hp:100,armor:.9,radius:24,hitbox_size:20,firstrarity:0,mass:2,behavior:"hostile",aggroType:"scorp",idleType:"wander"},
+  {name:"Scorpion Missile",dmg:25,hp:1,armor:.9,radius:24,hitbox_size:6,firstrarity:0,mass:2,renderhp:false,intangible:true,behavior:"passive",idleType:"missile"},
+  {name:"Cactus",dmg:40,hp:75,armor:.9,radius:35,hitbox_size:35,firstrarity:0,sizevary:true,mass:8},
+  {name:"Sandstorm",dmg:40,hp:100,armor:.9,radius:45,hitbox_size:45,firstrarity:0,sizevary:true,mass:4,behavior:"passive",idleType:"crazy"},
+  {name:"Dragonfly",dmg:16,hp:68.5,armor:.9,radius:24,hitbox_size:15,firstrarity:0,mass:0.2,behavior:"neutral",aggroType:"sine",idleType:"sine"},
+  {name:"Shiny Ladybug",dmg:10,hp:75,armor:.9,radius:22,hitbox_size:22,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  // ocean
+  {name:"Bubble",dmg:3,hp:1,armor:5,radius:35,hitbox_size:35,firstrarity:0,sizevary:true,mass:0.001},
+  {name:"Shell",dmg:10,hp:100,armor:1.2,radius:35,hitbox_size:35,firstrarity:0,mass:2.5,behavior:"neutral",aggroType:"hop"},
+  {name:"Jellyfish",dmg:10,hp:75,armor:.9,radius:45,hitbox_size:45,firstrarity:1,ltn:10,mass:0.2,behavior:"hostile",aggroType:"jellyfish",idleType:"circle"},
+  {name:"Leech",dmg:10,hp:100,armor:.9,radius:7,hitbox_size:7,firstrarity:0,mass:0.2,behavior:"hostile",aggroType:"fast_chase",idleType:"circle",tail:true},
+  {name:"Starfish",dmg:20,hp:50,armor:.9,radius:30,hitbox_size:30,firstrarity:1,mass:0.5,behavior:"hostile",aggroType:"chase",idleType:"wander"},
+  {name:"Sponge",dmg:10,hp:100,armor:1.2,radius:40,hitbox_size:40,firstrarity:0,sizevary:true,mass:10},
+  {name:"Crab",dmg:25,hp:75,armor:.9,radius:30,hitbox_size:30,firstrarity:1,mass:1.5,behavior:"hostile",aggroType:"fast_chase",idleType:"circle"},
+  // sewers
+  {name:"Fly",dmg:10,hp:25,armor:.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:1,mass:0.1,behavior:"hostile",aggroType:"sine",idleType:"sine"},
+  {name:"Moth",dmg:10,hp:17.5,armor:.9,radius:12.333,hitbox_size:12.333,firstrarity:0,mass:0.15,behavior:"neutral",aggroType:"fear",idleType:"wander"},
+  {name:"Roach",dmg:20,hp:62.5,armor:0.9,radius:18.5,hitbox_size:18.5,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"roach",idleType:"wander"},
+  // jungle
+  {name:"Dark Ladybug",dmg:10,hp:75,armor:.9,radius:22,hitbox_size:22,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"Wasp",dmg:50,hp:65.5,armor:.9,radius:18.5,hitbox_size:18.5,firstrarity:0,mass:1.2,behavior:"hostile",aggroType:"wasp",idleType:"circle"},
+  {name:"Wasp Missile",dmg:10,hp:5,armor:.9,radius:18.5,hitbox_size:10,firstrarity:0,renderhp:false,intangible:true,mass:0.1,behavior:"passive",idleType:"missile"},
+  {name:"Mantis",dmg:20,hp:62.5,armor:.9,radius:18.5,hitbox_size:18.5,firstrarity:1,mass:1,behavior:"hostile",aggroType:"mantis",idleType:"circle"},
+  {name:"Mantis Pea",dmg:5,hp:1,armor:.9,radius:20/5,hitbox_size:20/5,firstrarity:0,renderhp:false,intangible:true,mass:0.05,behavior:"passive",idleType:"missile"},
+  {name:"Leafbug",dmg:30,hp:50,armor:11,radius:22,hitbox_size:22,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"Cicada",dmg:20,radiation:15,hp:62.5,armor:.9,radius:16,hitbox_size:16,firstrarity:1,mass:1,behavior:"hostile",aggroType:"sine",idleType:"circle"},
+  {name:"Bush",dmg:10,hp:50,armor:.5,radius:35,hitbox_size:35,firstrarity:0,sizevary:true,mass:10},
+  // cavern
+  {name:"Stonefly",dmg:10,hp:100,armor:.9,radius:15,hitbox_size:15,firstrarity:0,intangible:true,mass:0.1,behavior:"hostile",aggroType:"sine",idleType:"sine"},
+  {name:"Stalagmite",dmg:15,hp:50,armor:.9,radius:30,hitbox_size:30,firstrarity:0,sizevary:true,mass:50},
+  {name:"Pill Bug",dmg:35,hp:75,armor:.9,radius:20,hitbox_size:20,firstrarity:0,mass:1,behavior:"hostile",aggroType:"slow_turn",idleType:"circle"},
+  // ant hell
+  {name:"Baby Ant",dmg:10,hp:25,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"passive",aggroType:"chase",idleType:"wander"},
+  {name:"Worker Ant",dmg:10,hp:62.5,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"Soldier Ant",dmg:10,hp:100,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"hostile",aggroType:"chase",idleType:"wander"},
+  {name:"Queen Ant",dmg:10,hp:250,armor:.9,radius:18.5,hitbox_size:30,firstrarity:0,mass:2,behavior:"hostile",aggroType:"queen_ant",idleType:"wander"},
+  {name:"Worm",dmg:15,hp:100,armor:3,radius:22,hitbox_size:22,firstrarity:0,mass:0.2,behavior:"hostile",aggroType:"sine",idleType:"circle",tail:true},
+  {name:"Cave Spider",dmg:15,hp:62.5,poison:100,armor:11,radius:20/3,hitbox_size:20/3,firstrarity:1,mass:0.1,behavior:"hostile",aggroType:"fast_chase",idleType:"wander"},
+  {name:"Soldier Fire Ant",dmg:20,hp:100,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"hostile",aggroType:"chase",idleType:"wander"},
+  {name:"Worker Fire Ant",dmg:20,hp:62.5,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"Fire Ant Burrow",dmg:0,hp:500,armor:0.9,radius:46/3,hitbox_size:46/3,firstrarity:0,mass:1e1000,behavior:"passive",hole:true,holeSpawns:["Soldier Fire Ant", "Worker Fire Ant"]},
+  // hel
+  {name:"Flesh Pillar",dmg:30,hp:250,armor:.9,radius:50,hitbox_size:50,firstrarity:5,sizevary:true,mass:3,behavior:"passive",idleType:"flesh_pillar"},
+  {name:"Hel Beetle",dmg:30,hp:150,armor:.9,radius:24,hitbox_size:20,firstrarity:0,mass:3,behavior:"hostile",aggroType:"slow_turn",idleType:"wander"},
+  {name:"Hel Spider",dmg:15,hp:100,poison:50,armor:.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:1,mass:0.1,behavior:"hostile",aggroType:"fast_chase",idleType:"wander"},
+  {name:"Hel Wasp",dmg:50,hp:100,armor:.9,radius:18.5,hitbox_size:18.5,firstrarity:0,mass:1.2,behavior:"hostile",aggroType:"hel_wasp",idleType:"circle"},
+  {name:"Hel Wasp Missile",dmg:10,hp:5,armor:.9,radius:5,hitbox_size:3,firstrarity:0,renderhp:false,intangible:true,mass:0.1,behavior:"passive",idleType:"missile"},
+  {name:"Hel Jellyfish",dmg:10,hp:150,armor:.9,radius:45,hitbox_size:45,firstrarity:0,ltn:20,mass:0.2,behavior:"hostile",aggroType:"jellyfish",idleType:"circle"},
+  // factory
+  {name:"Barrel",dmg:4,radiation:5,hp:50,armor:0.9,radius:21,hitbox_size:21,firstrarity:0,mass:10},
+  {name:"Mecha Wasp",dmg:50,hp:65.5,armor:3,radius:18.5,hitbox_size:18.5,firstrarity:0,mass:10,behavior:"hostile",aggroType:"wasp",idleType:"circle"},
+  {name:"Mecha Spider",dmg:30,hp:62.5,armor:3,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:5,behavior:"hostile",aggroType:"fast_chase",idleType:"wander"},
+  {name:"Mecha Worm",dmg:10,hp:100,armor:3,radius:22,hitbox_size:22,firstrarity:0,mass:0.2,behavior:"hostile",aggroType:"sine",idleType:"circle",tail:true},
+  // void
+  {name:"Void Wasp",dmg:50,hp:100,armor:.9,radius:18.5,hitbox_size:18.5,firstrarity:2,mass:1.2,behavior:"hostile",aggroType:"hornet",idleType:"circle"},
+  {name:"Gog",dmg:1e100,hp:0.00001,armor:1e100,radius:20,hitbox_size:20,firstrarity:0,mass:1e100,behavior:"neutral",aggroType:"chase",idleType:"wander"},
+  {name:"House M.D.",dmg:15,hp:100,armor:.9,radius:20,hitbox_size:20,firstrarity:0,mass:8,behavior:"hostile",aggroType:"chase",idleType:"circle"},
+  {name:"Cube",dmg:10,hp:100,armor:.9,radius:25,hitbox_size:20,firstrarity:0,mass:0,idleType:"circle"},
+  {name:"Karen",dmg:5,hp:55,armor:.9,radius:20,hitbox_size:20,firstrarity:0,mass:5,behavior:"hostile",aggroType:"fast_chase",idleType:"circle"},
+  // summons
+  {name:"Summoned Soldier Ant",dmg:10,hp:100,armor:0.9,radius:20/1.5,hitbox_size:20/1.5,firstrarity:0,mass:1.2,behavior:"hostile",aggroType:"chase",idleType:"circle"},
+];
+export const petellTypes = [ 
+  //dmg and hp are obvious, reload is amount of time in seconds it takes a petal to respawn, heal is done every time the petal is loaded in (increases a players current hp), hps is heal but its done passively and in small amounts that add up to the hps
+  {name:"Basic",dmg:10,hp:10,reload:1.5,armor:0}, 
+  {name:"Heavy",dmg:5,hp:100,reload:5,armor:0},  
+  {name:"Stinger",dmg:50,hp:5,reload:5,armor:0}, 
+  {name:"Rose",dmg:5,hp:10,heal:8,reload:1.5,armor:0},
+  {name:"Leaf",dmg:15,hp:10,hps:5,reload:1.5,armor:0},
+  {name:"Sand",dmg:5,hp:5,reload:0.5,armor:0},  
+  {name:"Wax",dmg:5,hp:1000,reload:10,armor:0},  
+  //{name:"Egg",dmg:0,hp:0.01,reload:5,armor:0,summon:"Summoned Soldier Ant"},  
+  {name:"Bone",dmg:15,hp:10,reload:1.5,armor:5}, 
+  {name:"Deity",dmg:1e150,hp:1e100,hps:1e150,reload:0.0001,armor:1e500}, 
+  //{name:"Cactus",dmg:10,hp:10,reload:1.5,extra_hp:50},
+ ]; 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Petell Multiplayer</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: monospace;
+      margin: 0;
+      overflow: hidden;
+      display: flex;
+      height: 100vh;
+      flex-direction: row;
+    }
+
+    #changelog-container {
+      width: 200px;
+      background: #222;
+      border-right: 2px solid #555;
+      padding: 10px;
+      overflow-y: auto;
+      box-sizing: border-box;
+      color: #ccc;
+      font-size: 11.5px;
+      line-height: 1.4;
+      max-height: 100vh;
+    }
+
+    #changelog-container summary {
+      font-size: 12.5px;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 5px;
+    }
+
+    #changelog {
+      white-space: normal;
+    }
+
+    .markdown-content h1, 
+    .markdown-content h2 {
+      font-size: 12px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: white;
+      border-bottom: 1px solid #555;
+    }
+
+    .markdown-content ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .markdown-content li {
+      margin-bottom: 4px;
+    }
+
+    #main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    canvas {
+      background: #222;
+      display: block;
+      margin: 0 auto;
+      flex-grow: 1;
+      border: 2px solid #555;
+    }
+
+    #chat {
+      display: flex;
+      background: #333;
+      padding: 5px;
+      height: 110px;
+      box-sizing: border-box;
+    }
+
+    #messages {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 5px;
+      border: 1px solid #555;
+      margin-right: 5px;
+      background: #111;
+      font-size: 14px;
+      line-height: 1.3;
+      white-space: pre-wrap;
+    }
+
+    #input {
+      width: 200px;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 5px;
+      border: 1px solid #555;
+      background: #222;
+      color: white;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <details id="changelog-container" open>
+    <summary>📜 Changelog</summary>
+    <div id="changelog" class="markdown-content">Loading changelog...</div>
+  </details>
+
+  <div id="main">
+    <canvas id="game" width="1500" height="800"></canvas>
+    <div id="chat">
+      <div id="messages"></div>
+      <input id="input" placeholder="Say something..." autocomplete="off" />
+    </div>
+  </div>
+
+  <script>
+    fetch('changelog.md')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to load changelog.md');
+        return res.text();
+      })
+      .then(text => {
+        document.getElementById('changelog').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('changelog').textContent = 'Error loading changelog:\n' + err.message;
+      });
+  </script>
+
+  <script src="game.js"></script>
+  <script src="mobdraw.js"></script>
+</body>
+</html>
