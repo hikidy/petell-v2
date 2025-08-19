@@ -1,5 +1,5 @@
 const wsProtocol = location.protocol === "https:" ? "wss:" : "ws:";
-const ws = new WebSocket(wsProtocol + "//" + location.host);
+const ws = new WebSocket('wss://petell-io.railway.app');
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const messages = document.getElementById("messages");
@@ -655,5 +655,6 @@ function spawnMob(x=0, y=0, rarity=0, mobType=0, angle=0) {
     }
   };
 }
+
 
 
